@@ -5,7 +5,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "JWTSSCODE" //fix later type err
 
 export const generateToken = (payload: { id: string; role: string }): string => {
     return jwt.sign(payload, JWT_SECRET, {
-        expiresIn: "7d",
+        expiresIn: "7d", 
     });
 };
 
