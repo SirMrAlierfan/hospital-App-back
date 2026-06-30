@@ -68,7 +68,7 @@ export class AuthService {
     async login(data: LoginInput) {
         const { email, password } = data;
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select("+password");
         if (!user) throw new Error("Invalid email or password");
 
         const isMatch = await comparePassword(password, user.password);
